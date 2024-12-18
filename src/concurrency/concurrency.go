@@ -50,12 +50,12 @@ func queryDB(username string) {
 
 func initializeDB(usernameBank []string) {
 	for _, username := range usernameBank {
-		DB[username] = hash(username)
+		DB[username] = Hash(username)
 	}
 }
 
 // hash a username using SHA-256
-func hash(username string) string {
+func Hash(username string) string {
 	hash := sha256.New()
 	hash.Write([]byte(username))
 	return hex.EncodeToString(hash.Sum(nil))
